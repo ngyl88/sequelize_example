@@ -3,6 +3,46 @@ const UserModel = require('./models/user')
 const BlogModel = require('./models/blog')
 const TagModel = require('./models/tag')
 
+const Op = Sequelize.Op;
+
+// REF: http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
+const operatorsAliases = {
+  $eq: Op.eq,
+  $ne: Op.ne,
+  $gte: Op.gte,
+  $gt: Op.gt,
+  $lte: Op.lte,
+  $lt: Op.lt,
+  $not: Op.not,
+  $in: Op.in,
+  $notIn: Op.notIn,
+  $is: Op.is,
+  $like: Op.like,
+  $notLike: Op.notLike,
+  $iLike: Op.iLike,
+  $notILike: Op.notILike,
+  $regexp: Op.regexp,
+  $notRegexp: Op.notRegexp,
+  $iRegexp: Op.iRegexp,
+  $notIRegexp: Op.notIRegexp,
+  $between: Op.between,
+  $notBetween: Op.notBetween,
+  $overlap: Op.overlap,
+  $contains: Op.contains,
+  $contained: Op.contained,
+  $adjacent: Op.adjacent,
+  $strictLeft: Op.strictLeft,
+  $strictRight: Op.strictRight,
+  $noExtendRight: Op.noExtendRight,
+  $noExtendLeft: Op.noExtendLeft,
+  $and: Op.and,
+  $or: Op.or,
+  $any: Op.any,
+  $all: Op.all,
+  $values: Op.values,
+  $col: Op.col
+};
+
 /* const sequelize = new Sequelize('codementor', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
@@ -26,7 +66,8 @@ const TagModel = require('./models/tag')
 // Or you can simply use a connection uri
 // const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
 const sequelize = new Sequelize('postgres://localhost:5432/sequelize_example', {
-    logging: false
+    logging: false,
+    operatorsAliases
 });
 
 // Test the connection
