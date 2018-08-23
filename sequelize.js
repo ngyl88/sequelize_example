@@ -43,26 +43,25 @@ const operatorsAliases = {
   $col: Op.col
 };
 
-const sequelize = new Sequelize('sequelize_example', 'yulianng', null, {
-  host: 'localhost',
-  dialect: 'postgres',        // 'mysql'|'sqlite'|'postgres'|'mssql',
-  pool: {
-    max: 10,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  },
-  logging: false,       // disable logging; default: console.log
-  //storage: 'path/to/database.sqlite',     // SQLite only
-  operatorsAliases: false
-})
-
-// Or you can simply use a connection uri
 // const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
-// const sequelize = new Sequelize('postgres://localhost:5432/sequelize_example', {
-//     logging: false,
-//     operatorsAliases
-// });
+const sequelize = new Sequelize('postgres://localhost:5432/sequelize_example', {
+    logging: false,
+    operatorsAliases
+});
+
+// const sequelize = new Sequelize('sequelize_example', 'yulianng', null, {
+//   host: 'localhost',
+//   dialect: 'postgres',        // 'mysql'|'sqlite'|'postgres'|'mssql',
+//   pool: {
+//     max: 10,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000
+//   },
+//   logging: false,       // disable logging; default: console.log
+//   //storage: 'path/to/database.sqlite',     // SQLite only
+//   operatorsAliases: false
+// })
 
 // Test the connection
 sequelize
