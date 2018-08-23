@@ -25,7 +25,9 @@ const TagModel = require('./models/tag')
 
 // Or you can simply use a connection uri
 // const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
-const sequelize = new Sequelize('postgres://localhost:5432/sequelize_example');
+const sequelize = new Sequelize('postgres://localhost:5432/sequelize_example', {
+    logging: false
+});
 
 // Test the connection
 sequelize
