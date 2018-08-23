@@ -13,6 +13,9 @@ const TagModel = require('./models/tag')
     idle: 10000
   },
 
+  // disable logging; default: console.log
+  //logging: false,
+
   // SQLite only
   //storage: 'path/to/database.sqlite',
 
